@@ -290,7 +290,7 @@ class RealtimeRegister extends RegistrarModule
                         $vars['customer'],
                         $vars['sandbox'] ?? 'false'
                     ],
-                    'message' => Language::_('RealtimeRegister.!error.key.valid_connection', true)
+                    'message' => Language::_('RealtimeRegister.!error.api_key.valid_connection', true)
                 ]
             ],
             'sandbox' => [
@@ -322,9 +322,10 @@ class RealtimeRegister extends RegistrarModule
             $this->log($customer . '|pricelist', serialize($params), 'input', true);
 
             $response = $api->priceList();
+            $errors = $response->errors();
 
             $success = false;
-            if (!isset($response->error)) {
+            if (empty($errors)) {
                 $success = true;
             }
 
