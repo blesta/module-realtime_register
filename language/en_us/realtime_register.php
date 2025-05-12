@@ -66,6 +66,7 @@ $lang['RealtimeRegister.service_info.domain'] = 'Domain';
 
 // Service Fields
 $lang['RealtimeRegister.service_fields.domain'] = 'Domain';
+$lang['RealtimeRegister.service_fields.authcode'] = 'Authorization Code';
 $lang['RealtimeRegister.service_fields.ns1'] = 'Name Server 1';
 $lang['RealtimeRegister.service_fields.ns2'] = 'Name Server 2';
 $lang['RealtimeRegister.service_fields.ns3'] = 'Name Server 3';
@@ -276,3 +277,149 @@ $lang['RealtimeRegister.tab_client_settings.field_request_epp'] = 'Request EPP C
 $lang['RealtimeRegister.tab_client_settings.field_submit'] = 'Update Settings';
 $lang['RealtimeRegister.tab_client_settings.field_authcode'] = 'Authentication Code';
 $lang['RealtimeRegister.tab_client_settings.field_update_auth_code'] = 'Update Authentication Code';
+
+// .US domain fields
+$lang['RealtimeRegister.domain.RegistrantNexus'] = 'Registrant Type';
+$lang['RealtimeRegister.domain.RegistrantNexus.c11'] = 'US citizen';
+$lang['RealtimeRegister.domain.RegistrantNexus.c12'] = 'Permanent resident of the US';
+$lang['RealtimeRegister.domain.RegistrantNexus.c21'] = 'US entity or organization';
+$lang['RealtimeRegister.domain.RegistrantNexus.c31'] = 'Foreign organization';
+$lang['RealtimeRegister.domain.RegistrantNexus.c32'] = 'Foreign organization with an office in the US';
+$lang['RealtimeRegister.domain.RegistrantPurpose'] = 'Purpose';
+$lang['RealtimeRegister.domain.RegistrantPurpose.p1'] = 'Business';
+$lang['RealtimeRegister.domain.RegistrantPurpose.p2'] = 'Non-profit';
+$lang['RealtimeRegister.domain.RegistrantPurpose.p3'] = 'Personal';
+$lang['RealtimeRegister.domain.RegistrantPurpose.p4'] = 'Educational';
+$lang['RealtimeRegister.domain.RegistrantPurpose.p5'] = 'Governmental';
+
+// .EU domain fields
+$lang['RealtimeRegister.domain.EUAgreeWhoisPolicy'] = 'Whois Policy';
+$lang['RealtimeRegister.domain.EUAgreeWhoisPolicy.yes'] = 'I hereby agree that the Registry is entitled to transfer the data contained in this application to third parties(i) if ordered to do so by a public authority, carrying out its legitimate tasks; and (ii) upon demand of an ADR Provider as mentioned in section 16 of the Terms and Conditions which are published at www.eurid.eu; and (iii) as provided in Section 2 (WHOIS look-up facility) of the .eu Domain Name WHOIS Policy which is published at www.eurid.eu.';
+$lang['RealtimeRegister.domain.EUAgreeDeletePolicy'] = 'Deleteion Rules';
+$lang['RealtimeRegister.domain.EUAgreeDeletePolicy.yes'] = 'I agree and acknowledge to the special renewal and expiration terms set forth below for this domain name, including those terms set forth in the Registration Agreement. I understand that unless I have set this domain for autorenewal, this domain name must be explicitly renewed by the expiration date or the 20th of the month of expiration, whichever is sooner. (e.g. If the name expires on Sept 4th, 2008, then a manual renewal must be received by Sept 4th, 2008. If name expires on Sep 27th, 2008, the renewal request must be received prior to Sep 20th, 2008). If the name is not manually renewed or previously set to autorenew, a delete request will be issued by RealtimeRegister. When a delete request is issued, the name will remain fully functional in my account until expiration, but will no longer be renewable nor will I be able to make any modifications to the name. These terms are subject to change.';
+
+// .CA domain fields
+$lang['RealtimeRegister.domain.CIRALegalType'] = 'Legal Type';
+$lang['RealtimeRegister.domain.RegistrantPurpose.cco'] = 'Corporation';
+$lang['RealtimeRegister.domain.RegistrantPurpose.cct'] = 'Canadian citizen';
+$lang['RealtimeRegister.domain.RegistrantPurpose.res'] = 'Canadian resident';
+$lang['RealtimeRegister.domain.RegistrantPurpose.gov'] = 'Government entity';
+$lang['RealtimeRegister.domain.RegistrantPurpose.edu'] = 'Educational';
+$lang['RealtimeRegister.domain.RegistrantPurpose.ass'] = 'Unincorporated Association';
+$lang['RealtimeRegister.domain.RegistrantPurpose.hop'] = 'Hospital';
+$lang['RealtimeRegister.domain.RegistrantPurpose.prt'] = 'Partnership';
+$lang['RealtimeRegister.domain.RegistrantPurpose.tdm'] = 'Trade-mark';
+$lang['RealtimeRegister.domain.RegistrantPurpose.trd'] = 'Trade Union';
+$lang['RealtimeRegister.domain.RegistrantPurpose.plt'] = 'Political Party';
+$lang['RealtimeRegister.domain.RegistrantPurpose.lam'] = 'Libraries, Archives and Museums';
+$lang['RealtimeRegister.domain.RegistrantPurpose.trs'] = 'Trust';
+$lang['RealtimeRegister.domain.RegistrantPurpose.abo'] = 'Aboriginal Peoples';
+$lang['RealtimeRegister.domain.RegistrantPurpose.inb'] = 'Indian Band';
+$lang['RealtimeRegister.domain.RegistrantPurpose.lgr'] = 'Legal Representative';
+$lang['RealtimeRegister.domain.RegistrantPurpose.omk'] = 'Official Mark';
+$lang['RealtimeRegister.domain.RegistrantPurpose.maj'] = 'The Queen';
+$lang['RealtimeRegister.domain.CIRAWhoisDisplay'] = 'Whois';
+$lang['RealtimeRegister.domain.CIRAWhoisDisplay.full'] = 'Make Public';
+$lang['RealtimeRegister.domain.CIRAWhoisDisplay.private'] = 'Keep Private';
+
+// .CO.UK domain fields
+$lang['RealtimeRegister.domain.COUKLegalType'] = 'Legal Type';
+$lang['RealtimeRegister.domain.COUKLegalType.ind'] = 'UK individual';
+$lang['RealtimeRegister.domain.COUKLegalType.find'] = 'Non-UK individual';
+$lang['RealtimeRegister.domain.COUKLegalType.ltd'] = 'UK Limited Company';
+$lang['RealtimeRegister.domain.COUKLegalType.plc'] = 'UK Public Limited Company';
+$lang['RealtimeRegister.domain.COUKLegalType.ptnr'] = 'UK Partnership';
+$lang['RealtimeRegister.domain.COUKLegalType.llp'] = 'UK Limited Liability Partnership';
+$lang['RealtimeRegister.domain.COUKLegalType.ip'] = 'UK Industrial/Provident Registered Company';
+$lang['RealtimeRegister.domain.COUKLegalType.stra'] = 'UK Sole Trader';
+$lang['RealtimeRegister.domain.COUKLegalType.sch'] = 'UK School';
+$lang['RealtimeRegister.domain.COUKLegalType.rchar'] = 'UK Registered Charity';
+$lang['RealtimeRegister.domain.COUKLegalType.gov'] = 'UK Government Body';
+$lang['RealtimeRegister.domain.COUKLegalType.other'] = 'UK Entity (other)';
+$lang['RealtimeRegister.domain.COUKLegalType.crc'] = 'UK Corporation by Royal Charter';
+$lang['RealtimeRegister.domain.COUKLegalType.fcorp'] = 'Foreign Organization';
+$lang['RealtimeRegister.domain.COUKLegalType.stat'] = 'UK Statutory Body FIND';
+$lang['RealtimeRegister.domain.COUKLegalType.fother'] = 'Other Foreign Organizations';
+$lang['RealtimeRegister.domain.COUKCompanyID'] = 'Company ID Number';
+$lang['RealtimeRegister.domain.COUKRegisteredfor'] = 'Registrant Name';
+
+// .ME.UK domain fields
+$lang['RealtimeRegister.domain.MEUKLegalType'] = 'Legal Type';
+$lang['RealtimeRegister.domain.MEUKLegalType.ind'] = 'UK individual';
+$lang['RealtimeRegister.domain.MEUKLegalType.find'] = 'Non-UK individual';
+$lang['RealtimeRegister.domain.MEUKLegalType.ltd'] = 'UK Limited Company';
+$lang['RealtimeRegister.domain.MEUKLegalType.plc'] = 'UK Public Limited Company';
+$lang['RealtimeRegister.domain.MEUKLegalType.ptnr'] = 'UK Partnership';
+$lang['RealtimeRegister.domain.MEUKLegalType.llp'] = 'UK Limited Liability Partnership';
+$lang['RealtimeRegister.domain.MEUKLegalType.ip'] = 'UK Industrial/Provident Registered Company';
+$lang['RealtimeRegister.domain.MEUKLegalType.stra'] = 'UK Sole Trader';
+$lang['RealtimeRegister.domain.MEUKLegalType.sch'] = 'UK School';
+$lang['RealtimeRegister.domain.MEUKLegalType.rchar'] = 'UK Registered Charity';
+$lang['RealtimeRegister.domain.MEUKLegalType.gov'] = 'UK Government Body';
+$lang['RealtimeRegister.domain.MEUKLegalType.other'] = 'UK Entity (other)';
+$lang['RealtimeRegister.domain.MEUKLegalType.crc'] = 'UK Corporation by Royal Charter';
+$lang['RealtimeRegister.domain.MEUKLegalType.fcorp'] = 'Foreign Organization';
+$lang['RealtimeRegister.domain.MEUKLegalType.stat'] = 'UK Statutory Body FIND';
+$lang['RealtimeRegister.domain.MEUKLegalType.fother'] = 'Other Foreign Organizations';
+$lang['RealtimeRegister.domain.MEUKCompanyID'] = 'Company ID Number';
+$lang['RealtimeRegister.domain.MEUKRegisteredfor'] = 'Registrant Name';
+
+// .ORG.UK domain fields
+$lang['RealtimeRegister.domain.ORGUKLegalType'] = 'Legal Type';
+$lang['RealtimeRegister.domain.ORGUKLegalType.ind'] = 'UK individual';
+$lang['RealtimeRegister.domain.ORGUKLegalType.find'] = 'Non-UK individual';
+$lang['RealtimeRegister.domain.ORGUKLegalType.ltd'] = 'UK Limited Company';
+$lang['RealtimeRegister.domain.ORGUKLegalType.plc'] = 'UK Public Limited Company';
+$lang['RealtimeRegister.domain.ORGUKLegalType.ptnr'] = 'UK Partnership';
+$lang['RealtimeRegister.domain.ORGUKLegalType.llp'] = 'UK Limited Liability Partnership';
+$lang['RealtimeRegister.domain.ORGUKLegalType.ip'] = 'UK Industrial/Provident Registered Company';
+$lang['RealtimeRegister.domain.ORGUKLegalType.stra'] = 'UK Sole Trader';
+$lang['RealtimeRegister.domain.ORGUKLegalType.sch'] = 'UK School';
+$lang['RealtimeRegister.domain.ORGUKLegalType.rchar'] = 'UK Registered Charity';
+$lang['RealtimeRegister.domain.ORGUKLegalType.gov'] = 'UK Government Body';
+$lang['RealtimeRegister.domain.ORGUKLegalType.other'] = 'UK Entity (other)';
+$lang['RealtimeRegister.domain.ORGUKLegalType.crc'] = 'UK Corporation by Royal Charter';
+$lang['RealtimeRegister.domain.ORGUKLegalType.fcorp'] = 'Foreign Organization';
+$lang['RealtimeRegister.domain.ORGUKLegalType.stat'] = 'UK Statutory Body FIND';
+$lang['RealtimeRegister.domain.ORGUKLegalType.fother'] = 'Other Foreign Organizations';
+$lang['RealtimeRegister.domain.ORGUKCompanyID'] = 'Company ID Number';
+$lang['RealtimeRegister.domain.ORGUKRegisteredfor'] = 'Registrant Name';
+
+// .ASIA domain fields
+$lang['RealtimeRegister.domain.ASIALegalEntityType'] = 'Legal Type';
+$lang['RealtimeRegister.domain.ASIALegalEntityType.corporation'] = 'Corporations or Companies';
+$lang['RealtimeRegister.domain.ASIALegalEntityType.cooperative'] = 'Cooperatives';
+$lang['RealtimeRegister.domain.ASIALegalEntityType.partnership'] = 'Partnerships or Collectives';
+$lang['RealtimeRegister.domain.ASIALegalEntityType.government'] = 'Government Bodies';
+$lang['RealtimeRegister.domain.ASIALegalEntityType.politicalParty'] = 'Political parties or Trade Unions';
+$lang['RealtimeRegister.domain.ASIALegalEntityType.society'] = 'Trusts, Estates, Associations or Societies';
+$lang['RealtimeRegister.domain.ASIALegalEntityType.institution'] = 'Institutions';
+$lang['RealtimeRegister.domain.ASIALegalEntityType.naturalPerson'] = 'Natural Persons';
+$lang['RealtimeRegister.domain.ASIAIdentForm'] = 'Form of Identity';
+$lang['RealtimeRegister.domain.ASIAIdentForm.certificate'] = 'Certificate of Incorporation';
+$lang['RealtimeRegister.domain.ASIAIdentForm.legislation'] = 'Charter';
+$lang['RealtimeRegister.domain.ASIAIdentForm.societyRegistry'] = 'Societies Registry';
+$lang['RealtimeRegister.domain.ASIAIdentForm.politicalPartyRegistry'] = 'Political Party Registry';
+$lang['RealtimeRegister.domain.ASIAIdentForm.passport'] = 'Passport/ Citizenship ID';
+$lang['RealtimeRegister.domain.ASIAIdentNumber'] = 'Identity Number';
+
+// .FR domain fields
+$lang['RealtimeRegister.!tooltip.FRRegistrantBirthDate'] = 'Set your birth date in the format: YYYY-MM-DD';
+$lang['RealtimeRegister.!tooltip.FRRegistrantLegalId'] = 'The SIREN number is the first part of the SIRET NUMBER and consists of 9 digits. The SIRET number is a unique identification number with 14 digits.';
+$lang['RealtimeRegister.!tooltip.FRRegistrantDunsNumber'] = 'The DUNS number consists of 9 digits, issued by Dun & Bradstreet.';
+$lang['RealtimeRegister.!tooltip.FRRegistrantJoDateDec'] = 'French associations listed with the Journal Officiel de la République Francaise should set a declaration date in the format: YYYY-MM-DD';
+$lang['RealtimeRegister.!tooltip.FRRegistrantJoDatePub'] = 'Enter the publication date in the Journal Officiel in the format: YYYY-MM-DD';
+
+$lang['RealtimeRegister.domain.FRLegalType'] = 'Legal Type';
+$lang['RealtimeRegister.domain.FRLegalType.individual'] = 'Individual';
+$lang['RealtimeRegister.domain.FRLegalType.company'] = 'Company';
+$lang['RealtimeRegister.domain.FRRegistrantBirthDate'] = 'Birth Date';
+$lang['RealtimeRegister.domain.FRRegistrantBirthplace'] = 'Birth Place';
+$lang['RealtimeRegister.domain.FRRegistrantLegalId'] = 'SIREN/SIRET Number';
+$lang['RealtimeRegister.domain.FRRegistrantTradeNumber'] = 'Trademark Number';
+$lang['RealtimeRegister.domain.FRRegistrantDunsNumber'] = 'DUNS Number';
+$lang['RealtimeRegister.domain.FRRegistrantLocalId'] = 'European Economic Area Local ID';
+$lang['RealtimeRegister.domain.FRRegistrantJoDateDec'] = 'The Journal Official Declaration Date';
+$lang['RealtimeRegister.domain.FRRegistrantJoDatePub'] = 'The Journal Official Publication Date';
+$lang['RealtimeRegister.domain.FRRegistrantJoNumber'] = 'The Journal Official Number';
+$lang['RealtimeRegister.domain.FRRegistrantJoPage'] = 'The Journal Official Announcement Page Number';

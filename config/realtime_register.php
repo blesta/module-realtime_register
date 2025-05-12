@@ -1337,6 +1337,302 @@ Configure::set('RealtimeRegister.tlds', [
     '.xn--hxt814e'
 ]);
 
+// .US
+Configure::set('RealtimeRegister.domain_fields.us', [
+    'RegistrantNexus' => [
+        'label' => Language::_('RealtimeRegister.domain.RegistrantNexus', true),
+        'type' => 'select',
+        'options' => [
+            'C11' => Language::_('RealtimeRegister.domain.RegistrantNexus.c11', true),
+            'C12' => Language::_('RealtimeRegister.domain.RegistrantNexus.c12', true),
+            'C21' => Language::_('RealtimeRegister.domain.RegistrantNexus.c21', true),
+            'C31' => Language::_('RealtimeRegister.domain.RegistrantNexus.c31', true),
+            'C32' => Language::_('RealtimeRegister.domain.RegistrantNexus.c32', true)
+        ]
+    ],
+    'RegistrantPurpose' => [
+        'label' => Language::_('RealtimeRegister.domain.RegistrantPurpose', true),
+        'type' => 'select',
+        'options' => [
+            'P1' => Language::_('RealtimeRegister.domain.RegistrantPurpose.p1', true),
+            'P2' => Language::_('RealtimeRegister.domain.RegistrantPurpose.p2', true),
+            'P3' => Language::_('RealtimeRegister.domain.RegistrantPurpose.p3', true),
+            'P4' => Language::_('RealtimeRegister.domain.RegistrantPurpose.p4', true),
+            'P5' => Language::_('RealtimeRegister.domain.RegistrantPurpose.p5', true)
+        ]
+    ]
+]);
+
+// .EU
+Configure::set('RealtimeRegister.domain_fields.eu', [
+    'EUAgreeWhoisPolicy' => [
+        'label' => Language::_('RealtimeRegister.domain.EUAgreeWhoisPolicy', true),
+        'type' => 'checkbox',
+        'options' => [
+            'YES' => Language::_('RealtimeRegister.domain.EUAgreeWhoisPolicy.yes', true)
+        ]
+    ],
+    'EUAgreeDeletePolicy' => [
+        'label' => Language::_('RealtimeRegister.domain.EUAgreeDeletePolicy', true),
+        'type' => 'checkbox',
+        'options' => [
+            'YES' => Language::_('RealtimeRegister.domain.EUAgreeDeletePolicy.yes', true)
+        ]
+    ]
+]);
+
+// .CA
+Configure::set('RealtimeRegister.domain_fields.ca', [
+    'CIRALegalType' => [
+        'label' => Language::_('RealtimeRegister.domain.CIRALegalType', true),
+        'type' => 'select',
+        'options' => [
+            'CCO' => Language::_('RealtimeRegister.domain.RegistrantPurpose.cco', true),
+            'CCT' => Language::_('RealtimeRegister.domain.RegistrantPurpose.cct', true),
+            'RES' => Language::_('RealtimeRegister.domain.RegistrantPurpose.res', true),
+            'GOV' => Language::_('RealtimeRegister.domain.RegistrantPurpose.gov', true),
+            'EDU' => Language::_('RealtimeRegister.domain.RegistrantPurpose.edu', true),
+            'ASS' => Language::_('RealtimeRegister.domain.RegistrantPurpose.ass', true),
+            'HOP' => Language::_('RealtimeRegister.domain.RegistrantPurpose.hop', true),
+            'PRT' => Language::_('RealtimeRegister.domain.RegistrantPurpose.prt', true),
+            'TDM' => Language::_('RealtimeRegister.domain.RegistrantPurpose.tdm', true),
+            'TRD' => Language::_('RealtimeRegister.domain.RegistrantPurpose.trd', true),
+            'PLT' => Language::_('RealtimeRegister.domain.RegistrantPurpose.plt', true),
+            'LAM' => Language::_('RealtimeRegister.domain.RegistrantPurpose.lam', true),
+            'TRS' => Language::_('RealtimeRegister.domain.RegistrantPurpose.trs', true),
+            'ABO' => Language::_('RealtimeRegister.domain.RegistrantPurpose.abo', true),
+            'INB' => Language::_('RealtimeRegister.domain.RegistrantPurpose.inb', true),
+            'LGR' => Language::_('RealtimeRegister.domain.RegistrantPurpose.lgr', true),
+            'OMK' => Language::_('RealtimeRegister.domain.RegistrantPurpose.omk', true),
+            'MAJ' => Language::_('RealtimeRegister.domain.RegistrantPurpose.maj', true)
+        ]
+    ],
+    'CIRAWhoisDisplay' => [
+        'label' => Language::_('RealtimeRegister.domain.CIRAWhoisDisplay', true),
+        'type' => 'select',
+        'options' => [
+            'Full' => Language::_('RealtimeRegister.domain.CIRAWhoisDisplay.full', true),
+            'Private' => Language::_('RealtimeRegister.domain.CIRAWhoisDisplay.private', true),
+        ]
+    ],
+    'CIRAAgreementVersion' => [
+        'type' => 'hidden',
+        'options' => '2.0'
+    ],
+    'CIRAAgreementValue' => [
+        'type' => 'hidden',
+        'options' => 'Y'
+    ]
+]);
+
+// .CO.UK
+Configure::set('RealtimeRegister.domain_fields.co.uk', [
+    'COUKLegalType' => [
+        'label' => Language::_('RealtimeRegister.domain.COUKLegalType', true),
+        'type' => 'select',
+        'options' => [
+            'IND' => Language::_('RealtimeRegister.domain.COUKLegalType.ind', true),
+            'FIND' => Language::_('RealtimeRegister.domain.COUKLegalType.find', true),
+            'LTD' => Language::_('RealtimeRegister.domain.COUKLegalType.ltd', true),
+            'PLC' => Language::_('RealtimeRegister.domain.COUKLegalType.plc', true),
+            'PTNR' => Language::_('RealtimeRegister.domain.COUKLegalType.ptnr', true),
+            'LLP' => Language::_('RealtimeRegister.domain.COUKLegalType.llp', true),
+            'IP' => Language::_('RealtimeRegister.domain.COUKLegalType.ip', true),
+            'STRA' => Language::_('RealtimeRegister.domain.COUKLegalType.stra', true),
+            'SCH' => Language::_('RealtimeRegister.domain.COUKLegalType.sch', true),
+            'RCHAR' => Language::_('RealtimeRegister.domain.COUKLegalType.rchar', true),
+            'GOV' => Language::_('RealtimeRegister.domain.COUKLegalType.gov', true),
+            'OTHER' => Language::_('RealtimeRegister.domain.COUKLegalType.other', true),
+            'CRC' => Language::_('RealtimeRegister.domain.COUKLegalType.crc', true),
+            'FCORP' => Language::_('RealtimeRegister.domain.COUKLegalType.fcorp', true),
+            'STAT' => Language::_('RealtimeRegister.domain.COUKLegalType.stat', true),
+            'FOTHER' => Language::_('RealtimeRegister.domain.COUKLegalType.fother', true)
+        ]
+    ],
+    'COUKCompanyID' => [
+        'label' => Language::_('RealtimeRegister.domain.COUKCompanyID', true),
+        'type' => 'text'
+    ],
+    'COUKRegisteredfor' => [
+        'label' => Language::_('RealtimeRegister.domain.COUKRegisteredfor', true),
+        'type' => 'text'
+    ]
+]);
+
+// .ME.UK
+Configure::set('RealtimeRegister.domain_fields.me.uk', [
+    'MEUKLegalType' => [
+        'label' => Language::_('RealtimeRegister.domain.MEUKLegalType', true),
+        'type' => 'select',
+        'options' => [
+            'IND' => Language::_('RealtimeRegister.domain.MEUKLegalType.ind', true),
+            'FIND' => Language::_('RealtimeRegister.domain.MEUKLegalType.find', true),
+            'LTD' => Language::_('RealtimeRegister.domain.MEUKLegalType.ltd', true),
+            'PLC' => Language::_('RealtimeRegister.domain.MEUKLegalType.plc', true),
+            'PTNR' => Language::_('RealtimeRegister.domain.MEUKLegalType.ptnr', true),
+            'LLP' => Language::_('RealtimeRegister.domain.MEUKLegalType.llp', true),
+            'IP' => Language::_('RealtimeRegister.domain.MEUKLegalType.ip', true),
+            'STRA' => Language::_('RealtimeRegister.domain.MEUKLegalType.stra', true),
+            'SCH' => Language::_('RealtimeRegister.domain.MEUKLegalType.sch', true),
+            'RCHAR' => Language::_('RealtimeRegister.domain.MEUKLegalType.rchar', true),
+            'GOV' => Language::_('RealtimeRegister.domain.MEUKLegalType.gov', true),
+            'OTHER' => Language::_('RealtimeRegister.domain.MEUKLegalType.other', true),
+            'CRC' => Language::_('RealtimeRegister.domain.MEUKLegalType.crc', true),
+            'FCORP' => Language::_('RealtimeRegister.domain.MEUKLegalType.fcorp', true),
+            'STAT' => Language::_('RealtimeRegister.domain.MEUKLegalType.stat', true),
+            'FOTHER' => Language::_('RealtimeRegister.domain.MEUKLegalType.fother', true)
+        ]
+    ],
+    'MEUKCompanyID' => [
+        'label' => Language::_('RealtimeRegister.domain.MEUKCompanyID', true),
+        'type' => 'text'
+    ],
+    'MEUKRegisteredfor' => [
+        'label' => Language::_('RealtimeRegister.domain.MEUKRegisteredfor', true),
+        'type' => 'text'
+    ]
+]);
+
+// .ORG.UK
+Configure::set('RealtimeRegister.domain_fields.org.uk', [
+    'ORGUKLegalType' => [
+        'label' => Language::_('RealtimeRegister.domain.ORGUKLegalType', true),
+        'type' => 'select',
+        'options' => [
+            'IND' => Language::_('RealtimeRegister.domain.ORGUKLegalType.ind', true),
+            'FIND' => Language::_('RealtimeRegister.domain.ORGUKLegalType.find', true),
+            'LTD' => Language::_('RealtimeRegister.domain.ORGUKLegalType.ltd', true),
+            'PLC' => Language::_('RealtimeRegister.domain.ORGUKLegalType.plc', true),
+            'PTNR' => Language::_('RealtimeRegister.domain.ORGUKLegalType.ptnr', true),
+            'LLP' => Language::_('RealtimeRegister.domain.ORGUKLegalType.llp', true),
+            'IP' => Language::_('RealtimeRegister.domain.ORGUKLegalType.ip', true),
+            'STRA' => Language::_('RealtimeRegister.domain.ORGUKLegalType.stra', true),
+            'SCH' => Language::_('RealtimeRegister.domain.ORGUKLegalType.sch', true),
+            'RCHAR' => Language::_('RealtimeRegister.domain.ORGUKLegalType.rchar', true),
+            'GOV' => Language::_('RealtimeRegister.domain.ORGUKLegalType.gov', true),
+            'OTHER' => Language::_('RealtimeRegister.domain.ORGUKLegalType.other', true),
+            'CRC' => Language::_('RealtimeRegister.domain.ORGUKLegalType.crc', true),
+            'FCORP' => Language::_('RealtimeRegister.domain.ORGUKLegalType.fcorp', true),
+            'STAT' => Language::_('RealtimeRegister.domain.ORGUKLegalType.stat', true),
+            'FOTHER' => Language::_('RealtimeRegister.domain.ORGUKLegalType.fother', true)
+        ]
+    ],
+    'ORGUKCompanyID' => [
+        'label' => Language::_('RealtimeRegister.domain.ORGUKCompanyID', true),
+        'type' => 'text'
+    ],
+    'ORGUKRegisteredfor' => [
+        'label' => Language::_('RealtimeRegister.domain.ORGUKRegisteredfor', true),
+        'type' => 'text'
+    ]
+]);
+
+// .ASIA
+Configure::set('RealtimeRegister.domain_fields.asia', [
+    'ASIACCLocality' => [
+        'type' => 'hidden',
+        'options' => null
+    ],
+    'ASIALegalEntityType' => [
+        'label' => Language::_('RealtimeRegister.domain.ASIALegalEntityType', true),
+        'type' => 'select',
+        'options' => [
+            'corporation' => Language::_('RealtimeRegister.domain.ASIALegalEntityType.corporation', true),
+            'cooperative' => Language::_('RealtimeRegister.domain.ASIALegalEntityType.cooperative', true),
+            'partnership' => Language::_('RealtimeRegister.domain.ASIALegalEntityType.partnership', true),
+            'government' => Language::_('RealtimeRegister.domain.ASIALegalEntityType.government', true),
+            'politicalParty' => Language::_('RealtimeRegister.domain.ASIALegalEntityType.politicalParty', true),
+            'society' => Language::_('RealtimeRegister.domain.ASIALegalEntityType.society', true),
+            'institution' => Language::_('RealtimeRegister.domain.ASIALegalEntityType.institution', true),
+            'naturalPerson' => Language::_('RealtimeRegister.domain.ASIALegalEntityType.naturalPerson', true)
+        ]
+    ],
+    'ASIAIdentForm' => [
+        'label' => Language::_('RealtimeRegister.domain.ASIAIdentForm', true),
+        'type' => 'select',
+        'options' => [
+            'certificate' => Language::_('RealtimeRegister.domain.ASIAIdentForm.certificate', true),
+            'legislation' => Language::_('RealtimeRegister.domain.ASIAIdentForm.legislation', true),
+            'societyRegistry' => Language::_('RealtimeRegister.domain.ASIAIdentForm.societyRegistry', true),
+            'politicalPartyRegistry' => Language::_('RealtimeRegister.domain.ASIAIdentForm.politicalPartyRegistry', true),
+            'passport' => Language::_('RealtimeRegister.domain.ASIAIdentForm.passport', true)
+        ]
+    ],
+    'ASIAIdentNumber' => [
+        'label' => Language::_('RealtimeRegister.domain.ASIAIdentNumber', true),
+        'type' => 'text'
+    ]
+]);
+
+// .DE
+Configure::set('RealtimeRegister.domain_fields.de', [
+    'DEConfirmAddress' => [
+        'type' => 'hidden',
+        'options' => 'DE'
+    ],
+    'DEAgreeDelete' => [
+        'type' => 'hidden',
+        'options' => 'YES'
+    ]
+]);
+
+// .FR
+Configure::set('RealtimeRegister.domain_fields.fr', [
+    'FRLegalType' => [
+        'label' => Language::_('RealtimeRegister.domain.FRLegalType', true),
+        'type' => 'select',
+        'options' => [
+            'Individual' => Language::_('RealtimeRegister.domain.FRLegalType.individual', true),
+            'Company' => Language::_('RealtimeRegister.domain.FRLegalType.company', true),
+        ]
+    ],
+    'FRRegistrantBirthDate' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantBirthDate', true),
+        'type' => 'text',
+        'tooltip' => Language::_('RealtimeRegister.!tooltip.FRRegistrantBirthDate', true)
+    ],
+    'FRRegistrantBirthplace' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantBirthplace', true),
+        'type' => 'text'
+    ],
+    'FRRegistrantLegalId' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantLegalId', true),
+        'type' => 'text',
+        'tooltip' => Language::_('RealtimeRegister.!tooltip.FRRegistrantLegalId', true)
+    ],
+    'FRRegistrantTradeNumber' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantTradeNumber', true),
+        'type' => 'text'
+    ],
+    'FRRegistrantDunsNumber' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantDunsNumber', true),
+        'type' => 'text',
+        'tooltip' => Language::_('RealtimeRegister.!tooltip.FRRegistrantDunsNumber', true)
+    ],
+    'FRRegistrantLocalId' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantLocalId', true),
+        'type' => 'text'
+    ],
+    'FRRegistrantJoDateDec' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantJoDateDec', true),
+        'type' => 'text',
+        'tooltip' => Language::_('RealtimeRegister.!tooltip.FRRegistrantJoDateDec', true)
+    ],
+    'FRRegistrantJoDatePub' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantJoDatePub', true),
+        'type' => 'text',
+        'tooltip' => Language::_('RealtimeRegister.!tooltip.FRRegistrantJoDatePub', true)
+    ],
+    'FRRegistrantJoNumber' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantJoNumber', true),
+        'type' => 'text'
+    ],
+    'FRRegistrantJoPage' => [
+        'label' => Language::_('RealtimeRegister.domain.FRRegistrantJoPage', true),
+        'type' => 'text'
+    ]
+]);
+
 // Welcome Email templates
 Configure::set('RealtimeRegister.email_templates', [
     'en_us' => [
