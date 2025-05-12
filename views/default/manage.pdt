@@ -1,7 +1,6 @@
         <?php
         $link_buttons = [
-            ['name' => $this->_('RealtimeRegister.add_module_row', true), 'attributes' => ['href' => $this->base_uri . 'settings/company/modules/addrow/' . $module->id]],
-            ['name' => $this->_('RealtimeRegister.add_module_group', true), 'attributes' => ['href' => $this->base_uri . 'settings/company/modules/addgroup/' . $module->id]]
+            ['name' => $this->_('RealtimeRegister.add_module_row', true), 'attributes' => ['href' => $this->base_uri . 'settings/company/modules/addrow/' . $module->id]]
         ];
 
         $this->Widget->clear();
@@ -49,55 +48,6 @@
         <div class="empty_section">
             <div class="empty_box">
                 <?php $this->_('RealtimeRegister.manage.module_rows_no_results'); ?>
-            </div>
-        </div>
-        <?php
-        }
-        ?>
-
-        <div class="title_row">
-            <h3><?php $this->_('RealtimeRegister.manage.module_groups_title');?></h3>
-        </div>
-        <?php
-        $num_rows = count((isset($module->groups) ? $module->groups : []));
-        if ($num_rows > 0) {
-        ?>
-        <table class="table">
-            <tr class="heading_row">
-                <td><span><?php $this->_('RealtimeRegister.manage.module_groups_heading.name');?></span></td>
-                <td><span><?php $this->_('RealtimeRegister.manage.module_groups_heading.module_rows');?></span></td>
-                <td class="last"><span><?php $this->_('RealtimeRegister.manage.module_groups_heading.options');?></span></td>
-            </tr>
-            <?php
-            for ($i=0; $i<$num_rows; $i++) {
-            ?>
-            <tr<?php echo ($i%2 == 1) ? ' class="odd_row"' : '';?>>
-                <td><?php echo (isset($module->groups[$i]->customer) ? $this->Html->safe($module->groups[$i]->customer) : null);?></td>
-                <td><?php echo (isset($module->groups[$i]->name) ? $this->Html->safe($module->groups[$i]->name) : null);?></td>
-                <td><?php echo count((isset($module->groups[$i]->rows) ? $module->groups[$i]->rows : []));?></td>
-                <td>
-                    <a href="<?php echo $this->Html->safe($this->base_uri . 'settings/company/modules/editgroup/' . (isset($module->id) ? $module->id : null) . '/' . (isset($module->groups[$i]->id) ? $module->groups[$i]->id : null) . '/');?>"><?php $this->_('RealtimeRegister.manage.module_groups.edit');?></a>
-                    <?php
-                    $this->Form->create($this->base_uri . 'settings/company/modules/deletegroup/');
-                    $this->Form->fieldHidden('id', (isset($module->id) ? $module->id : null));
-                    $this->Form->fieldHidden('group_id', (isset($module->groups[$i]->id) ? $module->groups[$i]->id : null));
-                    ?>
-                    <a href="<?php echo $this->Html->safe($this->base_uri . 'settings/company/modules/deletegroup/' . (isset($module->id) ? $module->id : null) . '/' . (isset($module->groups[$i]->id) ? $module->groups[$i]->id : null) . '/');?>" class="manage" rel="<?php echo $this->Html->safe($this->_('RealtimeRegister.manage.module_groups.confirm_delete', true));?>"><?php $this->_('RealtimeRegister.manage.module_groups.delete');?></a>
-                    <?php
-                    $this->Form->end();
-                    ?>
-                </td>
-            </tr>
-            <?php
-            }
-            ?>
-        </table>
-        <?php
-        } else {
-        ?>
-        <div class="empty_section">
-            <div class="empty_box">
-                <?php $this->_('RealtimeRegister.manage.module_groups.no_results');?>
             </div>
         </div>
         <?php
