@@ -564,6 +564,10 @@ class RealtimeRegister extends RegistrarModule
             $contact_numbers = $this->Contacts->getNumbers($client->contact_id);
         }
 
+        // Fetch TLD
+        $tld = $this->getTld($vars['domain']);
+        $tld_fields = $this->getTldFields($tld, $package->module_row);
+
         // Only provision the service if 'use_module' is true
         if ($vars['use_module'] == 'true') {
             // Create registrant contact
@@ -584,7 +588,7 @@ class RealtimeRegister extends RegistrarModule
                 unset($params['addressLine'][1]);
             }
 
-            $roles = ['ADMIN', 'BILLING', 'TECH'];
+            $roles = ['ADMIN', 'BILLING', 'TECH', 'REGISTRANT'];
             $contacts = [];
             foreach ($roles as $role) {
                 $handle = uniqid($role);
@@ -602,6 +606,24 @@ class RealtimeRegister extends RegistrarModule
 
                     return;
                 }
+
+                // Append TLD specific fields
+                if ($role == 'REGISTRANT') {
+                    $fields = array_keys($tld_fields);
+                    $additional_fields = array_intersect_key($vars, array_flip($fields));
+
+                    $registry = '';
+                    foreach ($tld_fields as $field) {
+                        if (!empty($field['registry'])) {
+                            $registry = $field['registry'];
+                        }
+                    }
+
+                    $this->log($row->meta->customer . '|contacts', serialize($additional_fields), 'input', true);
+                    $properties = $api->appendPropertiesContact($handle, $registry, $additional_fields);
+                    $response = $properties->response();
+                    $this->log($row->meta->customer . '|contacts', serialize($response), 'output', empty($properties->errors()));
+                }
             }
 
             // Set registration period
@@ -613,30 +635,33 @@ class RealtimeRegister extends RegistrarModule
                 }
             }
 
-            // Set nameservers
-            $ns = [];
-            for ($i = 1; $i <= 5; $i++) {
-                if (isset($vars['ns' . $i]) && $vars['ns' . $i] != '') {
-                    $ns[] = $vars['ns' . $i];
-                }
-            }
-
             // Register domain
             $params = [
-                'registrant' => $handle,
+                'registrant' => $contacts['REGISTRANT'],
                 'privacyProtect' => false,
                 'autoRenew' => false,
                 'period' => $years,
-                'ns' => $ns,
+                'ns' => array_values($vars['ns'] ?? []),
                 'contacts' => []
             ];
 
             foreach ($roles as $role) {
+                if ($role == 'REGISTRANT') {
+                    continue;
+                }
+
                 $params['contacts'][] = ['role' => $role, 'handle' => $contacts[$role]];
             }
 
             if ($row->meta->sandbox == 'true') {
-                unset($params['ns']);
+                $params['zone'] = [
+                    'service' => 'BASIC',
+                    'template' => 'standard-template'
+                ];
+                $params['ns'] = [
+                    'ns1.realtimeregister-ote.com',
+                    'ns2.realtimeregister-ote.com'
+                ];
             }
 
             $this->log($row->meta->customer . '|create', serialize($params), 'input', true);
@@ -938,9 +963,17 @@ class RealtimeRegister extends RegistrarModule
             }
         }
 
+        // Fetch TLD specific fields
+        $tld = $this->getTld($vars->domain ?? '');
+        $tld_fields = [];
+        if (!empty($tld)) {
+            $tld_fields = $this->getTldFields($tld, $package->module_row);
+        }
+
         $module_fields = $this->arrayToModuleFields(
             array_merge(
                 Configure::get('RealtimeRegister.domain_fields'),
+                $tld_fields,
                 Configure::get('RealtimeRegister.nameserver_fields')
             ),
             null,
@@ -952,6 +985,7 @@ class RealtimeRegister extends RegistrarModule
             $module_fields = $this->arrayToModuleFields(
                 array_merge(
                     Configure::get('RealtimeRegister.domain_fields'),
+                    $tld_fields,
                     Configure::get('RealtimeRegister.transfer_fields'),
                     Configure::get('RealtimeRegister.nameserver_fields')
                 ),
@@ -1004,9 +1038,17 @@ class RealtimeRegister extends RegistrarModule
             }
         }
 
+        // Fetch TLD specific fields
+        $tld = $this->getTld($vars->domain ?? '');
+        $tld_fields = [];
+        if (!empty($tld)) {
+            $tld_fields = $this->getTldFields($tld, $package->module_row);
+        }
+
         $module_fields = $this->arrayToModuleFields(
             array_merge(
                 Configure::get('RealtimeRegister.domain_fields'),
+                $tld_fields,
                 Configure::get('RealtimeRegister.nameserver_fields')
             ),
             null,
@@ -1018,6 +1060,7 @@ class RealtimeRegister extends RegistrarModule
             $module_fields = $this->arrayToModuleFields(
                 array_merge(
                     Configure::get('RealtimeRegister.domain_fields'),
+                    $tld_fields,
                     Configure::get('RealtimeRegister.transfer_fields'),
                     Configure::get('RealtimeRegister.nameserver_fields')
                 ),
@@ -1054,9 +1097,14 @@ class RealtimeRegister extends RegistrarModule
         $row = $this->getModuleRow($module_row_id);
         $api = $this->getApi($row->meta->customer, $row->meta->api_key, $row->meta->sandbox);
 
+        $params = compact('domain');
+        $this->log($row->meta->customer . '|check', serialize($params), 'input', true);
+
         // Check if the domain is available
         $domain = $api->checkDomain($domain);
         $response = $domain->response();
+
+        $this->log($row->meta->customer . '|check', serialize($response), 'output', isset($response->available));
 
         return $response->available ?? false;
     }
@@ -2631,6 +2679,70 @@ class RealtimeRegister extends RegistrarModule
         } else {
             return Configure::get('RealtimeRegister.tlds');
         }
+    }
+
+    /**
+     * Returns the TLD of the given domain
+     *
+     * @param string $domain The domain to return the TLD from
+     * @return string The TLD of the domain
+     */
+    private function getTld($domain)
+    {
+        $tlds = $this->getTlds();
+
+        $domain = strtolower($domain);
+
+        foreach ($tlds as $tld) {
+            if (substr($domain, -strlen($tld)) == $tld) {
+                return $tld;
+            }
+        }
+
+        return strstr($domain, '.');
+    }
+
+    /**
+     * Returns the specific fields for a given TLD
+     *
+     * @param string $tld The TLD to fetch the fields
+     * @param int|null $module_row_id The ID of the module row to fetch for the current module
+     * @return array An array of module fields for the specific TLD
+     */
+    private function getTldFields($tld, $module_row_id = null)
+    {
+        $fields = [];
+
+        // Format TLD
+        $tld = ltrim($tld, '.');
+
+        // Fetch TLD metadata
+        $row = $this->getModuleRow($module_row_id);
+        $api = $this->getApi($row->meta->customer, $row->meta->api_key, $row->meta->sandbox);
+
+        $this->log($row->meta->customer . '|tlds', serialize(compact('tld')), 'input', true);
+        $tld_info = $api->getTld($tld);
+        $response = $tld_info->response();
+        $this->log($row->meta->customer . '|tlds', serialize($response), 'output', empty($tld_info->errors()));
+
+        if (!empty($response->metadata->contactProperties)) {
+            foreach ($response->metadata->contactProperties as $property) {
+                $lang = Language::_('RealtimeRegister.domain.' . $property->name, true);
+                $fields[$property->name] = [
+                    'label' => !empty($lang) ? $lang : $property->label,
+                    'type' => empty($property->values) ? 'text' : 'select',
+                    'options' => (array) $property->values ?? [],
+                    'registry' => $response->provider ?? ''
+                ];
+            }
+        }
+
+        // Fallback to built-in fields
+        if (empty($fields)) {
+            $fields = Configure::get('RealtimeRegister.domain_fields.' . $tld) ?? [];
+        }
+
+        return $fields;
     }
 
     /**
