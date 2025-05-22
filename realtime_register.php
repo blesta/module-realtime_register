@@ -1335,8 +1335,9 @@ class RealtimeRegister extends RegistrarModule
         // Fetch current nameservers
         $nameservers = $this->getDomainNameServers($service_fields->domain, $row->id);
         for ($i = 1; $i <= 5; $i++) {
-            if (empty($vars->{'ns[' . $i . ']'}) && isset($nameservers[$i]['url'])) {
-                $vars->{'ns[' . $i . ']'} = $nameservers[$i]['url'];
+            $j = $i - 1;
+            if (empty($vars->{'ns[' . $i . ']'}) && isset($nameservers[$j]['url'])) {
+                $vars->{'ns[' . $i . ']'} = $nameservers[$j]['url'];
             }
         }
 
