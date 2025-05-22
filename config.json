@@ -16,7 +16,7 @@
         "row_key": "customer"
     },
     "package": {
-        "name_key": "epp_code"
+        "name_key": "domain"
     },
     "service": {
         "name_key": "domain"

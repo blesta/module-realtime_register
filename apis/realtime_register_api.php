@@ -279,6 +279,22 @@ class RealtimeRegisterApi
     }
 
     /**
+     * Append properties to a contact
+     *
+     * @param string $handle The contact handle
+     * @param array $params The properties to append to the contact
+     * @return RealtimeRegisterResponse The API response
+     */
+    public function appendPropertiesContact(string $handle, string $registry, array $params)
+    {
+        return $this->apiRequest(
+            '/v2/customers/' . $this->customer . '/contacts/' . $handle . '/' . $registry,
+            ['properties' => $params],
+            'POST'
+        );
+    }
+
+    /**
      * Fetches an existing contact
      *
      * @param string $handle The contact handle
@@ -380,5 +396,16 @@ class RealtimeRegisterApi
     public function updateZone(string $domain, array $params)
     {
         return $this->apiRequest('/v2/domains/' . $domain . '/zone/update/', $params, 'POST');
+    }
+
+    /**
+     * Fetch a TLD metadata
+     *
+     * @param string $tld The TLD to fetch the related metadata
+     * @return RealtimeRegisterResponse The API response
+     */
+    public function getTld(string $tld)
+    {
+        return $this->apiRequest('/v2/tlds/' . $tld . '/info/');
     }
 }

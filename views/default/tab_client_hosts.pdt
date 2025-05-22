@@ -22,7 +22,7 @@
                                 <?php
                                 foreach ($host['ips'] as $ip) {
                                 ?>
-                                    <div class="label label-<?php echo $this->Html->safe(($ip['version'] == '4') ? 'warning' : 'danger');?> d-block mb-1"><?php echo $this->Html->safe($ip['ip'] ?? '');?></div>
+                                    <div class="text-<?php echo $this->Html->safe(($ip['version'] == '4') ? 'primary' : 'danger');?>"><?php echo $this->Html->safe($ip['ip'] ?? '');?></div>
                                 <?php
                                 }
                                 ?>
@@ -33,7 +33,7 @@
                                 $this->Form->fieldHidden('action', 'delete');
                                 $this->Form->fieldHidden('host', $host['host'] ?? '');
                                 ?>
-                                <button class="btn btn-light btn-xs" type="submit">
+                                <button class="btn btn-danger btn-xs" type="submit">
                                     <i class="fas fa-ban"></i> <?php $this->_('RealtimeRegister.tab_client_hosts.field_delete');?>
                                 </button>
                                 <?php

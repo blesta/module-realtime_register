@@ -90,7 +90,10 @@ class RealtimeRegisterResponse
             }
         }
 
-        $error_types = ['ValidationError', 'UnrecognizedPropertyException', 'ObjectDoesNotExist', 'InvalidMessage'];
+        $error_types = [
+            'ValidationError', 'UnrecognizedPropertyException', 'ObjectDoesNotExist',
+            'InvalidMessage', 'ProviderUnavailable'
+        ];
         if (isset($this->response->message) && in_array($this->response->type, $error_types)) {
             $this->errors[] = $this->response->message;
         }
