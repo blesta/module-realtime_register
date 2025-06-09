@@ -3,7 +3,7 @@
  * en_us language for the Realtime Register module.
  */
 // Basics
-$lang['RealtimeRegister.name'] = ' Realtime Register';
+$lang['RealtimeRegister.name'] = 'Realtime Register';
 $lang['RealtimeRegister.description'] = 'We offer 2,000+ TLDs from over 150 registries, and are constantly adding new ones. We take care of registry updates and all policies and procedures.';
 $lang['RealtimeRegister.module_row'] = 'Account';
 $lang['RealtimeRegister.module_row_plural'] = 'Accounts';
