@@ -190,7 +190,7 @@ class RealtimeRegister extends RegistrarModule
         $encrypted_fields = ['api_key'];
 
         // Set unset checkboxes
-        $checkbox_fields = [];
+        $checkbox_fields = ['sandbox'];
         foreach ($checkbox_fields as $checkbox_field) {
             if (!isset($vars[$checkbox_field])) {
                 $vars[$checkbox_field] = 'false';
@@ -235,7 +235,7 @@ class RealtimeRegister extends RegistrarModule
         $encrypted_fields = ['api_key'];
 
         // Set unset checkboxes
-        $checkbox_fields = [];
+        $checkbox_fields = ['sandbox'];
         foreach ($checkbox_fields as $checkbox_field) {
             if (!isset($vars[$checkbox_field])) {
                 $vars[$checkbox_field] = 'false';
@@ -938,7 +938,7 @@ class RealtimeRegister extends RegistrarModule
     {
         Loader::load(dirname(__FILE__) . DS . 'apis' . DS . 'realtime_register_api.php');
 
-        $api = new RealtimeRegisterApi($customer, $api_key, $sandbox);
+        $api = new RealtimeRegisterApi($customer, $api_key, ($sandbox === 'true'));
 
         return $api;
     }
