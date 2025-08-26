@@ -60,6 +60,10 @@ $lang['RealtimeRegister.!error.sandbox.format'] = 'Sandbox must be either "true"
 $lang['RealtimeRegister.!error.module_row.missing'] = 'An internal error occurred. The module row is unavailable.';
 
 
+// Warnings
+$lang['RealtimeRegister.!notice.client_update_prohibited'] = 'You are not allowed to manage this domain.';
+
+
 // Service info
 $lang['RealtimeRegister.service_info.domain'] = 'Domain';
 
