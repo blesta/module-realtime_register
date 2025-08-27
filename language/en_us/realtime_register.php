@@ -272,6 +272,7 @@ $lang['RealtimeRegister.tab_client_settings.heading_auth_code'] = 'Authorization
 $lang['RealtimeRegister.tab_client_settings.field_registrar_lock'] = 'Registrar Lock';
 $lang['RealtimeRegister.tab_client_settings.field_registrar_lock_yes'] = 'Set the registrar lock. Recommended to prevent unauthorized transfer.';
 $lang['RealtimeRegister.tab_client_settings.field_registrar_lock_no'] = 'Release the registrar lock so the domain can be transferred.';
+$lang['RealtimeRegister.tab_client_settings.field_status'] = 'Domain Status';
 
 $lang['RealtimeRegister.tab_client_settings.field_enable_dns'] = 'Enable DNS Zone';
 $lang['RealtimeRegister.tab_client_settings.field_enable_dns_yes'] = 'Use the internal DNS zone.';

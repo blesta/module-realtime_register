@@ -2014,11 +2014,6 @@ class RealtimeRegister extends RegistrarModule
             return;
         }
 
-        // Set allowed statuses to be edited
-        $allowed_statuses = [
-            'CLIENT_TRANSFER_PROHIBITED'
-        ];
-
         // Manage settings
         if (!empty($post)) {
             $this->log($row->meta->customer . '|domains', serialize($post), 'input', true);
@@ -2027,30 +2022,26 @@ class RealtimeRegister extends RegistrarModule
                 $domain = $this->getDomainInfo($service_fields->domain, $row->id);
 
                 if (($post['registrar_lock'] ?? 'false') == 'true') {
-                    $new_statuses = $domain['status'];
-                    foreach ($allowed_statuses as $status) {
-                        if (in_array($status, $new_statuses)) {
-                            continue;
-                        }
-
-                        $new_statuses[] = $status;
+                    if (!in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+                        $domain['status'][] = 'CLIENT_TRANSFER_PROHIBITED';
                     }
                 } else {
-                    $new_statuses = [];
-                    foreach ($domain['status'] as $status) {
-                        if (in_array($status, $allowed_statuses)) {
-                            continue;
+                    if (in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+                        foreach ($domain['status'] as $key => $status) {
+                            if ($status == 'CLIENT_TRANSFER_PROHIBITED') {
+                                unset($domain['status'][$key]);
+                            }
                         }
-
-                        $new_statuses[] = $status;
                     }
                 }
 
-                $action = $api->updateDomain($service_fields->domain, ['status' => $new_statuses]);
+                $domain['status'] = array_values($domain['status']);
+
+                $action = $api->updateDomain($service_fields->domain, ['status' => $domain['status'] ?? []]);
             }
 
             if ($post['action'] == 'update_auth_code') {
-                $action = $api->updateDomain($service_fields->domain, ['authcode' => $post['authcode']]);
+                $action = $api->updateDomain($service_fields->domain, ['authcode' => $post['authcode'] ?? null]);
             }
 
             if ($post['action'] == 'enable_dns') {
@@ -2084,9 +2075,9 @@ class RealtimeRegister extends RegistrarModule
         $domain = $this->getDomainInfo($service_fields->domain, $row->id);
 
         // Fetch domain status
-        $registrar_lock = 'true';
-        if (empty(array_intersect($allowed_statuses, $domain['status']))) {
-            $registrar_lock = 'false';
+        $registrar_lock = 'false';
+        if (in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+            $registrar_lock = 'true';
         }
 
         // Fetch zone status
@@ -2136,11 +2127,6 @@ class RealtimeRegister extends RegistrarModule
             return;
         }
 
-        // Set allowed statuses to be edited
-        $allowed_statuses = [
-            'CLIENT_TRANSFER_PROHIBITED'
-        ];
-
         // Manage settings
         if (!empty($post)) {
             $this->log($row->meta->customer . '|domains', serialize($post), 'input', true);
@@ -2149,26 +2135,22 @@ class RealtimeRegister extends RegistrarModule
                 $domain = $this->getDomainInfo($service_fields->domain, $row->id);
 
                 if (($post['registrar_lock'] ?? 'false') == 'true') {
-                    $new_statuses = $domain['status'];
-                    foreach ($allowed_statuses as $status) {
-                        if (in_array($status, $new_statuses)) {
-                            continue;
-                        }
-
-                        $new_statuses[] = $status;
+                    if (!in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+                        $domain['status'][] = 'CLIENT_TRANSFER_PROHIBITED';
                     }
                 } else {
-                    $new_statuses = [];
-                    foreach ($domain['status'] as $status) {
-                        if (in_array($status, $allowed_statuses)) {
-                            continue;
+                    if (in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+                        foreach ($domain['status'] as $key => $status) {
+                            if ($status == 'CLIENT_TRANSFER_PROHIBITED') {
+                                unset($domain['status'][$key]);
+                            }
                         }
-
-                        $new_statuses[] = $status;
                     }
                 }
 
-                $action = $api->updateDomain($service_fields->domain, ['status' => $new_statuses]);
+                $domain['status'] = array_values($domain['status']);
+
+                $action = $api->updateDomain($service_fields->domain, ['status' => $domain['status'] ?? []]);
             }
 
             if ($post['action'] == 'update_auth_code') {
@@ -2206,9 +2188,9 @@ class RealtimeRegister extends RegistrarModule
         $domain = $this->getDomainInfo($service_fields->domain, $row->id);
 
         // Fetch domain status
-        $registrar_lock = 'true';
-        if (empty(array_intersect($allowed_statuses, $domain['status']))) {
-            $registrar_lock = 'false';
+        $registrar_lock = 'false';
+        if (in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+            $registrar_lock = 'true';
         }
 
         // Fetch zone status

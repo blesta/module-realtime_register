@@ -28,6 +28,20 @@
                         </label>
                     </div>
                 </div>
+                <div class="form-group">
+                    <?php
+                    $this->Form->label($this->_('RealtimeRegister.tab_client_settings.field_status', true), 'status');
+                    ?>
+                    <div>
+                        <?php
+                        foreach ($domain['status'] ?? [] as $status) {
+                        ?>
+                            <div class="badge badge-<?php echo (str_contains($status, 'PROHIBITED')) ? 'danger' : 'info';?> mb-1"><?php echo $this->Html->safe($status);?></div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
 
