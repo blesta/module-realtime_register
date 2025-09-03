@@ -60,6 +60,10 @@ $lang['RealtimeRegister.!error.sandbox.format'] = 'Sandbox must be either "true"
 $lang['RealtimeRegister.!error.module_row.missing'] = 'An internal error occurred. The module row is unavailable.';
 
 
+// Warnings
+$lang['RealtimeRegister.!notice.client_update_prohibited'] = 'You are not allowed to manage this domain.';
+
+
 // Service info
 $lang['RealtimeRegister.service_info.domain'] = 'Domain';
 
@@ -268,6 +272,7 @@ $lang['RealtimeRegister.tab_client_settings.heading_auth_code'] = 'Authorization
 $lang['RealtimeRegister.tab_client_settings.field_registrar_lock'] = 'Registrar Lock';
 $lang['RealtimeRegister.tab_client_settings.field_registrar_lock_yes'] = 'Set the registrar lock. Recommended to prevent unauthorized transfer.';
 $lang['RealtimeRegister.tab_client_settings.field_registrar_lock_no'] = 'Release the registrar lock so the domain can be transferred.';
+$lang['RealtimeRegister.tab_client_settings.field_status'] = 'Domain Status';
 
 $lang['RealtimeRegister.tab_client_settings.field_enable_dns'] = 'Enable DNS Zone';
 $lang['RealtimeRegister.tab_client_settings.field_enable_dns_yes'] = 'Use the internal DNS zone.';
