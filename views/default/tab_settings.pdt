@@ -30,6 +30,15 @@
                         </label>
                     </div>
                 </li>
+                <li>
+                    <?php
+                    foreach ($domain['status'] ?? [] as $status) {
+                    ?>
+                        <div class="badge badge-<?php echo (str_contains($status, 'PROHIBITED')) ? 'danger' : 'info';?>"><?php echo $this->Html->safe($status);?></div>
+                    <?php
+                    }
+                    ?>
+                </li>
             </ul>
         </div>
 

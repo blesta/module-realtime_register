@@ -1241,6 +1241,14 @@ class RealtimeRegister extends RegistrarModule
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
 
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
+
         // Update domain contacts
         if (!empty($post)) {
             $this->setDomainContacts($service_fields->domain, $post['contacts'], $row->id);
@@ -1282,6 +1290,14 @@ class RealtimeRegister extends RegistrarModule
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
 
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
+
         // Update domain contacts
         if (!empty($post)) {
             $this->setDomainContacts($service_fields->domain, $post['contacts'], $row->id);
@@ -1322,6 +1338,14 @@ class RealtimeRegister extends RegistrarModule
 
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
+
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
 
         // Manage nameservers
         if (!empty($post)) {
@@ -1373,6 +1397,14 @@ class RealtimeRegister extends RegistrarModule
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
 
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
+
         // Manage nameservers
         if (!empty($post)) {
             $this->setDomainNameservers($service_fields->domain, $row->id, $post['ns']);
@@ -1421,6 +1453,14 @@ class RealtimeRegister extends RegistrarModule
 
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
+
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
 
         // Manage hosts
         if (!empty($post)) {
@@ -1494,6 +1534,14 @@ class RealtimeRegister extends RegistrarModule
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
 
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
+
         // Manage hosts
         if (!empty($post)) {
             $this->log($row->meta->customer . '|hosts', serialize($post), 'input', true);
@@ -1565,6 +1613,14 @@ class RealtimeRegister extends RegistrarModule
 
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
+
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
 
         // Manage DNSSEC
         if (!empty($post)) {
@@ -1650,6 +1706,14 @@ class RealtimeRegister extends RegistrarModule
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
 
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
+
         // Manage DNSSEC
         if (!empty($post)) {
             $this->log($row->meta->customer . '|domains', serialize($post), 'input', true);
@@ -1733,6 +1797,14 @@ class RealtimeRegister extends RegistrarModule
 
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
+
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
 
         // Manage DNS
         if (!empty($post)) {
@@ -1830,6 +1902,14 @@ class RealtimeRegister extends RegistrarModule
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
 
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
+
         // Manage DNS
         if (!empty($post)) {
             $this->log($row->meta->customer . '|domains', serialize($post), 'input', true);
@@ -1926,11 +2006,13 @@ class RealtimeRegister extends RegistrarModule
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
 
-        // Set allowed statuses to be edited
-        $allowed_statuses = [
-            'CLIENT_HOLD', 'CLIENT_DELETE_PROHIBITED', 'CLIENT_UPDATE_PROHIBITED',
-            'CLIENT_RENEW_PROHIBITED', 'CLIENT_TRANSFER_PROHIBITED'
-        ];
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
 
         // Manage settings
         if (!empty($post)) {
@@ -1940,30 +2022,26 @@ class RealtimeRegister extends RegistrarModule
                 $domain = $this->getDomainInfo($service_fields->domain, $row->id);
 
                 if (($post['registrar_lock'] ?? 'false') == 'true') {
-                    $new_statuses = $domain['status'];
-                    foreach ($allowed_statuses as $status) {
-                        if (in_array($status, $new_statuses)) {
-                            continue;
-                        }
-
-                        $new_statuses[] = $status;
+                    if (!in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+                        $domain['status'][] = 'CLIENT_TRANSFER_PROHIBITED';
                     }
                 } else {
-                    $new_statuses = [];
-                    foreach ($domain['status'] as $status) {
-                        if (in_array($status, $allowed_statuses)) {
-                            continue;
+                    if (in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+                        foreach ($domain['status'] as $key => $status) {
+                            if ($status == 'CLIENT_TRANSFER_PROHIBITED') {
+                                unset($domain['status'][$key]);
+                            }
                         }
-
-                        $new_statuses[] = $status;
                     }
                 }
 
-                $action = $api->updateDomain($service_fields->domain, ['status' => $new_statuses]);
+                $domain['status'] = array_values($domain['status']);
+
+                $action = $api->updateDomain($service_fields->domain, ['status' => $domain['status'] ?? []]);
             }
 
             if ($post['action'] == 'update_auth_code') {
-                $action = $api->updateDomain($service_fields->domain, ['authcode' => $post['authcode']]);
+                $action = $api->updateDomain($service_fields->domain, ['authcode' => $post['authcode'] ?? null]);
             }
 
             if ($post['action'] == 'enable_dns') {
@@ -1997,9 +2075,9 @@ class RealtimeRegister extends RegistrarModule
         $domain = $this->getDomainInfo($service_fields->domain, $row->id);
 
         // Fetch domain status
-        $registrar_lock = 'true';
-        if (empty(array_intersect($allowed_statuses, $domain['status']))) {
-            $registrar_lock = 'false';
+        $registrar_lock = 'false';
+        if (in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+            $registrar_lock = 'true';
         }
 
         // Fetch zone status
@@ -2041,11 +2119,13 @@ class RealtimeRegister extends RegistrarModule
         // Load the helpers required for this view
         Loader::loadHelpers($this, ['Form', 'Html']);
 
-        // Set allowed statuses to be edited
-        $allowed_statuses = [
-            'CLIENT_HOLD', 'CLIENT_DELETE_PROHIBITED', 'CLIENT_UPDATE_PROHIBITED',
-            'CLIENT_RENEW_PROHIBITED', 'CLIENT_TRANSFER_PROHIBITED'
-        ];
+        // Check if the user is allowed to manage this domain
+        $domain = $this->getDomainInfo($service_fields->domain, $row->id);
+        if (in_array('CLIENT_UPDATE_PROHIBITED', ($domain['status'] ?? []))) {
+            $this->setMessage('notice', Language::_('RealtimeRegister.!notice.client_update_prohibited', true));
+
+            return;
+        }
 
         // Manage settings
         if (!empty($post)) {
@@ -2055,26 +2135,22 @@ class RealtimeRegister extends RegistrarModule
                 $domain = $this->getDomainInfo($service_fields->domain, $row->id);
 
                 if (($post['registrar_lock'] ?? 'false') == 'true') {
-                    $new_statuses = $domain['status'];
-                    foreach ($allowed_statuses as $status) {
-                        if (in_array($status, $new_statuses)) {
-                            continue;
-                        }
-
-                        $new_statuses[] = $status;
+                    if (!in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+                        $domain['status'][] = 'CLIENT_TRANSFER_PROHIBITED';
                     }
                 } else {
-                    $new_statuses = [];
-                    foreach ($domain['status'] as $status) {
-                        if (in_array($status, $allowed_statuses)) {
-                            continue;
+                    if (in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+                        foreach ($domain['status'] as $key => $status) {
+                            if ($status == 'CLIENT_TRANSFER_PROHIBITED') {
+                                unset($domain['status'][$key]);
+                            }
                         }
-
-                        $new_statuses[] = $status;
                     }
                 }
 
-                $action = $api->updateDomain($service_fields->domain, ['status' => $new_statuses]);
+                $domain['status'] = array_values($domain['status']);
+
+                $action = $api->updateDomain($service_fields->domain, ['status' => $domain['status'] ?? []]);
             }
 
             if ($post['action'] == 'update_auth_code') {
@@ -2112,9 +2188,9 @@ class RealtimeRegister extends RegistrarModule
         $domain = $this->getDomainInfo($service_fields->domain, $row->id);
 
         // Fetch domain status
-        $registrar_lock = 'true';
-        if (empty(array_intersect($allowed_statuses, $domain['status']))) {
-            $registrar_lock = 'false';
+        $registrar_lock = 'false';
+        if (in_array('CLIENT_TRANSFER_PROHIBITED', $domain['status'] ?? [])) {
+            $registrar_lock = 'true';
         }
 
         // Fetch zone status
