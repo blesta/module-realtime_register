@@ -1327,8 +1327,8 @@ class RealtimeRegister extends RegistrarModule
         if (!empty($post)) {
             $ns = [];
             for ($i = 0; $i <= 5; $i++) {
-                if (!empty($vars->{'ns' . ($i + 1)})) {
-                    $ns[] = $vars->{'ns' . ($i + 1)};
+                if (!empty($post['ns' . ($i + 1)])) {
+                    $ns[] = $post['ns' . ($i + 1)];
                 }
             }
 
@@ -1379,8 +1379,8 @@ class RealtimeRegister extends RegistrarModule
         if (!empty($post)) {
             $ns = [];
             for ($i = 0; $i <= 5; $i++) {
-                if (!empty($vars->{'ns' . ($i + 1)})) {
-                    $ns[] = $vars->{'ns' . ($i + 1)};
+                if (!empty($post['ns' . ($i + 1)])) {
+                    $ns[] = $post['ns' . ($i + 1)];
                 }
             }
 
