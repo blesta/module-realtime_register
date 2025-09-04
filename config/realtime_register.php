@@ -17,23 +17,23 @@ Configure::set('RealtimeRegister.transfer_fields', [
 
 // Nameserver fields
 Configure::set('RealtimeRegister.nameserver_fields', [
-    'ns[1]' => [
+    'ns1' => [
         'label' => Language::_('RealtimeRegister.service_fields.ns1', true),
         'type' => 'text'
     ],
-    'ns[2]' => [
+    'ns2' => [
         'label' => Language::_('RealtimeRegister.service_fields.ns2', true),
         'type' => 'text'
     ],
-    'ns[3]' => [
+    'ns3' => [
         'label' => Language::_('RealtimeRegister.service_fields.ns3', true),
         'type' => 'text'
     ],
-    'ns[4]' => [
+    'ns4' => [
         'label' => Language::_('RealtimeRegister.service_fields.ns4', true),
         'type' => 'text'
     ],
-    'ns[5]' => [
+    'ns5' => [
         'label' => Language::_('RealtimeRegister.service_fields.ns5', true),
         'type' => 'text'
     ]
