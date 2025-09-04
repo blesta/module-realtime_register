@@ -1349,19 +1349,21 @@ class RealtimeRegister extends RegistrarModule
 
         // Manage nameservers
         if (!empty($post)) {
-            $this->setDomainNameservers($service_fields->domain, $row->id, $post['ns']);
-
-            foreach ($post['ns'] as $ns => $nameserver) {
-                $vars->{'ns[' . $ns . ']'} = $nameserver;
+            $ns = [];
+            for ($i = 0; $i <= 5; $i++) {
+                if (!empty($post['ns' . ($i + 1)])) {
+                    $ns[] = $post['ns' . ($i + 1)];
+                }
             }
+
+            $this->setDomainNameservers($service_fields->domain, $row->id, $ns);
         }
 
         // Fetch current nameservers
         $nameservers = $this->getDomainNameServers($service_fields->domain, $row->id);
-        for ($i = 1; $i <= 5; $i++) {
-            $j = $i - 1;
-            if (empty($vars->{'ns[' . $i . ']'}) && isset($nameservers[$j]['url'])) {
-                $vars->{'ns[' . $i . ']'} = $nameservers[$j]['url'];
+        for ($i = 0; $i <= 5; $i++) {
+            if (empty($vars->{'ns' . ($i + 1)}) && isset($nameservers[$i]['url'])) {
+                $vars->{'ns' . ($i + 1)} = $nameservers[$i]['url'];
             }
         }
 
@@ -1407,18 +1409,21 @@ class RealtimeRegister extends RegistrarModule
 
         // Manage nameservers
         if (!empty($post)) {
-            $this->setDomainNameservers($service_fields->domain, $row->id, $post['ns']);
-
-            foreach ($post['ns'] as $ns => $nameserver) {
-                $vars->{'ns[' . $ns . ']'} = $nameserver;
+            $ns = [];
+            for ($i = 0; $i <= 5; $i++) {
+                if (!empty($post['ns' . ($i + 1)])) {
+                    $ns[] = $post['ns' . ($i + 1)];
+                }
             }
+
+            $this->setDomainNameservers($service_fields->domain, $row->id, $ns);
         }
 
         // Fetch current nameservers
         $nameservers = $this->getDomainNameServers($service_fields->domain, $row->id);
-        for ($i = 1; $i <= 5; $i++) {
-            if (empty($vars->{'ns[' . $i . ']'}) && isset($nameservers[$i]['url'])) {
-                $vars->{'ns[' . $i . ']'} = $nameservers[$i]['url'];
+        for ($i = 0; $i <= 5; $i++) {
+            if (empty($vars->{'ns' . ($i + 1)}) && isset($nameservers[$i]['url'])) {
+                $vars->{'ns' . ($i + 1)} = $nameservers[$i]['url'];
             }
         }
 
