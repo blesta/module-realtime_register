@@ -751,21 +751,24 @@ class RealtimeRegister extends RegistrarModule
                 }
             }
 
-            $params = [
-                'ns' => $ns
-            ];
+            // Only update nameservers if at least one was provided
+            if (!empty($ns)) {
+                $params = [
+                    'ns' => $ns
+                ];
 
-            $this->log($row->meta->customer . '|update', serialize($params), 'input', true);
-            $domain = $api->updateDomain($vars['domain'], $params);
-            $response = $domain->response();
-            $this->log($row->meta->customer . '|update', serialize($response), 'output', empty($domain->errors()));
+                $this->log($row->meta->customer . '|update', serialize($params), 'input', true);
+                $domain = $api->updateDomain($vars['domain'], $params);
+                $response = $domain->response();
+                $this->log($row->meta->customer . '|update', serialize($response), 'output', empty($domain->errors()));
 
-            if (!empty($domain->errors())) {
-                $this->Input->setErrors(
-                    ['api' => $domain->errors()]
-                );
+                if (!empty($domain->errors())) {
+                    $this->Input->setErrors(
+                        ['api' => $domain->errors()]
+                    );
 
-                return;
+                    return;
+                }
             }
         }
 
