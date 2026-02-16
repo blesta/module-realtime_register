@@ -751,12 +751,20 @@ class RealtimeRegister extends RegistrarModule
                 }
             }
 
+            $params=[];
             // Only update nameservers if at least one was provided
             if (!empty($ns)) {
-                $params = [
-                    'ns' => $ns
-                ];
+                $params['ns'] = $ns;
+            }
 
+            $id_protection = $this->featureServiceEnabled('id_protection', $service);
+            if (!$id_protection && isset($vars['configoptions']['id_protection'])) {
+              $params['privacyProtect']= true;
+            } elseif ($id_protection && !isset($vars['configoptions']['id_protection'])) {
+              $params['privacyProtect']= false;
+            }
+
+            if(!empty($params)){
                 $this->log($row->meta->customer . '|update', serialize($params), 'input', true);
                 $domain = $api->updateDomain($vars['domain'], $params);
                 $response = $domain->response();
