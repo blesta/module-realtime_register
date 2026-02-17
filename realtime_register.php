@@ -743,19 +743,23 @@ class RealtimeRegister extends RegistrarModule
 
         // Only update the service if 'use_module' is true
         if ($vars['use_module'] == 'true') {
-            // Set nameservers
-            $ns = [];
-            for ($i = 1; $i <= 5; $i++) {
-                if (isset($vars['ns' . $i]) && $vars['ns' . $i] != '') {
-                    $ns[] = $vars['ns' . $i];
-                }
-            }
-
             $params=[];
+
+            // Set nameservers
+            // Blesta uses API to registrar to get current values.
+            // Since editService currently does not update the corresponding service fields
+            //   if they are changed by Blesta on the registrar by API,
+            //   these service fields become out of date and must not be used.
+            // $ns = [];
+            //  for ($i = 1; $i <= 5; $i++) {
+            //    if (isset($vars['ns' . $i]) && $vars['ns' . $i] != '') {
+            //        $ns[] = $vars['ns' . $i];
+            //    }
+            //}
             // Only update nameservers if at least one was provided
-            if (!empty($ns)) {
-                $params['ns'] = $ns;
-            }
+            // if (!empty($ns)) {
+            //    $params['ns'] = $ns;
+            // }
 
             $id_protection = $this->featureServiceEnabled('id_protection', $service);
             if (!$id_protection && isset($vars['configoptions']['id_protection'])) {
