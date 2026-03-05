@@ -6,9 +6,7 @@
     $i = 0;
     foreach ($contacts ?? [] as $contact) {
     ?>
-<div class="title_row<?php echo $i == 0 ? ' first' : '' ?>">
-    <h6 class="form-section-header"><?php $this->_('RealtimeRegister.tab_contacts.section_' . $contact->external_id);?></h6>
-</div>
+<h6 class="form-section-header<?php echo $i == 0 ? ' first' : '' ?>"><?php $this->_('RealtimeRegister.tab_contacts.section_' . $contact->external_id);?></h6>
 
 <div>
     <?php
