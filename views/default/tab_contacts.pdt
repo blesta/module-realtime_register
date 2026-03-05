@@ -1,44 +1,46 @@
 <?php /** @var View $this **/ ?>
 
 <?php
-    $this->Form->create();
+$this->Form->create();
 
-    $i = 0;
-    foreach ($contacts ?? [] as $contact) {
-    ?>
-<h6 class="form-section-header<?php echo $i == 0 ? ' first' : '' ?>"><?php $this->_('RealtimeRegister.tab_contacts.section_' . $contact->external_id);?></h6>
+$i = 0;
+foreach ($contacts ?? [] as $contact) { ?>
+<h6 class="form-section-header<?php echo $i == 0 ? ' first' : ''; ?>"><?php $this->_(
+    'RealtimeRegister.tab_contacts.section_' . $contact->external_id,
+); ?></h6>
 
 <div>
-    <?php
-
-                foreach ($contact as $field => $value) {
-                    if ($field == 'external_id') {
-                        $this->Form->fieldHidden('contacts[' . $contact->external_id . '][' . $field . ']', $value);
-                        continue;
-                    }
-                ?>
+    <?php foreach ($contact as $field => $value) {
+        if ($field == 'external_id') {
+            $this->Form->fieldHidden('contacts[' . $contact->external_id . '][' . $field . ']', $value);
+            continue;
+        } ?>
     <div class="mb-3">
     <?php
-
-                        $this->Form->label($this->_('RealtimeRegister.tab_contacts.field_' . $field, true), $field, ['class' => 'form-label']);
-                        $this->Form->fieldText('contacts[' . $contact->external_id . '][' . $field . ']', (isset($vars->contacts[$contact->external_id][$field]) ? $vars->contacts[$contact->external_id][$field] : $value), ['id' => $field, 'class' => 'form-control', 'placeholder' => $this->_('RealtimeRegister.tab_contacts.field_' . $field, true)]);
-                        ?>
+    $this->Form->label($this->_('RealtimeRegister.tab_contacts.field_' . $field, true), $field, [
+        'class' => 'form-label',
+    ]);
+    $this->Form->fieldText(
+        'contacts[' . $contact->external_id . '][' . $field . ']',
+        isset($vars->contacts[$contact->external_id][$field]) ? $vars->contacts[$contact->external_id][$field] : $value,
+        [
+            'id' => $field,
+            'class' => 'form-control',
+            'placeholder' => $this->_('RealtimeRegister.tab_contacts.field_' . $field, true),
+        ],
+    );
+    ?>
     </div>
     <?php
-                }
-                ?>
+    } ?>
 </div>
-<?php
-        $i++;
-    }
-    ?>
+<?php $i++;}
+?>
 
 <div class="d-flex justify-content-end">
-    <?php
-
-        $this->Form->fieldSubmit('save', $this->_('RealtimeRegister.tab_contacts.field_update', true), ['class' => 'btn btn-primary']);
-        ?>
+    <?php $this->Form->fieldSubmit('save', $this->_('RealtimeRegister.tab_contacts.field_update', true), [
+        'class' => 'btn btn-primary',
+    ]); ?>
 </div>
-<?php
-    $this->Form->end();
-    ?>
+<?php $this->Form->end();
+?>
