@@ -1,7 +1,9 @@
 <?php /** @var View $this **/ ?>
 
-<?php $this->Form->create(); ?>
-<h6 class="form-section-header first"><?php $this->_('RealtimeRegister.tab_nameservers.heading'); ?></h6>
+<?php
+$this->Form->create();
+?>
+<h6 class="form-section-header"><?php $this->_('RealtimeRegister.tab_nameservers.heading'); ?></h6>
 
 <div>
     <?php foreach ($nameserver_fields ?? [] as $name => $field) { ?>
@@ -20,8 +22,9 @@
 
 <div class="d-flex justify-content-end">
     <?php $this->Form->fieldSubmit('save', $this->_('RealtimeRegister.tab_nameservers.field_update', true), [
-        'class' => 'btn btn-primary',
+        'class' => 'btn btn-primary'
     ]); ?>
 </div>
-<?php $this->Form->end();
+<?php
+$this->Form->end();
 ?>

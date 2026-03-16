@@ -4,12 +4,12 @@
 $this->Form->create();
 $this->Form->fieldHidden('action', 'update');
 ?>
-<h6 class="form-section-header first"><?php $this->_('RealtimeRegister.tab_settings.heading'); ?></h6>
+<h6 class="form-section-header"><?php $this->_('RealtimeRegister.tab_settings.heading'); ?></h6>
 
 <div>
     <div class="mb-3">
     <?php $this->Form->label($this->_('RealtimeRegister.tab_settings.field_registrar_lock', true), 'registrar_lock', [
-        'class' => 'form-label',
+        'class' => 'form-label'
     ]); ?>
         <div class="form-check">
             <label>
@@ -57,7 +57,7 @@ $this->Form->fieldHidden('action', 'update');
 
 <div class="d-flex justify-content-end">
     <?php $this->Form->fieldSubmit('save', $this->_('RealtimeRegister.tab_settings.field_submit', true), [
-        'class' => 'btn btn-primary',
+        'class' => 'btn btn-primary'
     ]); ?>
 </div>
     <?php $this->Form->end(); ?>
@@ -71,7 +71,7 @@ $this->Form->fieldHidden('action', 'update');
 <div>
     <div class="mb-3">
     <?php $this->Form->label($this->_('RealtimeRegister.tab_settings.field_enable_dns', true), 'enable_dns', [
-        'class' => 'form-label',
+        'class' => 'form-label'
     ]); ?>
         <div class="form-check">
             <label>
@@ -104,7 +104,7 @@ $this->Form->fieldHidden('action', 'update');
 
 <div class="d-flex justify-content-end">
     <?php $this->Form->fieldSubmit('save', $this->_('RealtimeRegister.tab_settings.field_submit', true), [
-        'class' => 'btn btn-primary',
+        'class' => 'btn btn-primary'
     ]); ?>
 </div>
     <?php $this->Form->end(); ?>
@@ -133,8 +133,9 @@ $this->Form->fieldHidden('action', 'update');
 
 <div class="d-flex justify-content-end">
     <?php $this->Form->fieldSubmit('save', $this->_('RealtimeRegister.tab_settings.field_update_auth_code', true), [
-        'class' => 'btn btn-primary',
+        'class' => 'btn btn-primary'
     ]); ?>
 </div>
-    <?php $this->Form->end();
+    <?php
+$this->Form->end();
 ?>
