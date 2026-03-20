@@ -2348,7 +2348,7 @@ class RealtimeRegister extends RegistrarModule
 
         $tlds = [];
         if ($cache) {
-            $tlds = unserialize(base64_decode($cache));
+            $tlds = safe_unserialize(base64_decode($cache));
         }
 
         if (empty($tlds)) {
@@ -2424,7 +2424,7 @@ class RealtimeRegister extends RegistrarModule
                     try {
                         Cache::writeCache(
                             'tlds',
-                            base64_encode(serialize($tlds)),
+                            base64_encode(safe_serialize($tlds)),
                             strtotime(Configure::get('Blesta.cache_length')) - time(),
                             Configure::get('Blesta.company_id') . DS . 'modules' . DS . 'realtime_register' . DS
                         );
