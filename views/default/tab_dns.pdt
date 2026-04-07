@@ -32,15 +32,15 @@
                     $this->Form->fieldHidden('name', $record->name ?? '');
                     $this->Form->fieldHidden('type', $record->type ?? '');
                     ?>
-                    <button class="btn btn-light btn-sm" type="submit">
-                        <i class="bi bi-slash-circle"></i> <?php $this->_('RealtimeRegister.tab_dns.field_delete'); ?>
+                    <button class="btn btn-sm btn-outline-danger" type="submit" title="<?php $this->_('RealtimeRegister.tab_dns.field_delete'); ?>">
+                        <i class="bi bi-trash"></i>
                     </button>
                     <?php $this->Form->end(); ?>
                 </td>
             </tr>
-                    <?php }
+                <?php }
             } else {
-                 ?>
+                ?>
             <tr>
                 <td colspan="6">
                     <div class="text-center py-5 text-muted">
@@ -120,10 +120,10 @@
     ]); ?>
 </div>
                     <?php $this->Form->end(); ?>
-                    <?php } else { ?>
+<?php } else { ?>
 <div class="text-center py-5 text-muted">
     <i class="bi bi-inbox" style="font-size: 3rem; opacity: 0.3;"></i>
     <p class="mt-3 mb-0"><?php $this->_('RealtimeRegister.tab_dns.text_dns_disabled'); ?></p>
 </div>
-    <?php }
+<?php }
 ?>

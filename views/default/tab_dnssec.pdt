@@ -30,10 +30,8 @@
                     $this->Form->fieldHidden('action', 'delete');
                     $this->Form->fieldHidden('public_key', $key->publicKey ?? '');
                     ?>
-                    <button class="btn btn-light btn-sm" type="submit">
-                        <i class="bi bi-slash-circle"></i> <?php $this->_(
-                            'RealtimeRegister.tab_dnssec.field_delete',
-                        ); ?>
+                    <button class="btn btn-sm btn-outline-danger" type="submit" title="<?php $this->_('RealtimeRegister.tab_dnssec.field_delete'); ?>">
+                        <i class="bi bi-trash"></i>
                     </button>
                     <?php $this->Form->end(); ?>
                 </td>

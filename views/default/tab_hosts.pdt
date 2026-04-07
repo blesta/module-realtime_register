@@ -29,8 +29,8 @@
                     $this->Form->fieldHidden('action', 'delete');
                     $this->Form->fieldHidden('host', $host['host'] ?? '');
                     ?>
-                    <button class="btn btn-danger btn-sm" type="submit">
-                        <i class="bi bi-slash-circle"></i> <?php $this->_('RealtimeRegister.tab_hosts.field_delete'); ?>
+                    <button class="btn btn-sm btn-outline-danger" type="submit" title="<?php $this->_('RealtimeRegister.tab_hosts.field_delete'); ?>">
+                        <i class="bi bi-trash"></i>
                     </button>
                     <?php $this->Form->end(); ?>
                 </td>

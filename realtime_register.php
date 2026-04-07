@@ -1211,9 +1211,9 @@ class RealtimeRegister extends RegistrarModule
         ];
 
         // Check if DNS Management is enabled
-        if (!$this->featureServiceEnabled('dns_management', $service)) {
-            unset($tabs['tabDnssec'], $tabs['tabDns']);
-        }
+        // if (!$this->featureServiceEnabled('dns_management', $service)) {
+        //     unset($tabs['tabDnssec'], $tabs['tabDns']);
+        // }
 
         return $tabs;
     }
