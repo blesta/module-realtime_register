@@ -2357,7 +2357,7 @@ class RealtimeRegister extends RegistrarModule
 
         $tlds = [];
         if ($cache) {
-            $tlds = unserialize(base64_decode($cache));
+            $tlds = safe_unserialize(base64_decode($cache));
         }
 
         if (empty($tlds)) {
