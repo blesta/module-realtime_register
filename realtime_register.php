@@ -2424,7 +2424,7 @@ class RealtimeRegister extends RegistrarModule
                     try {
                         Cache::writeCache(
                             'tlds',
-                            base64_encode(safe_serialize($tlds)),
+                            base64_encode(serialize($tlds)),
                             strtotime(Configure::get('Blesta.cache_length')) - time(),
                             Configure::get('Blesta.company_id') . DS . 'modules' . DS . 'realtime_register' . DS
                         );
