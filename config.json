@@ -1,5 +1,5 @@
 {
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "registrar",
     "name": "RealtimeRegister.name",
     "description": "RealtimeRegister.description",
@@ -38,5 +38,8 @@
         "id_protection": 1,
         "epp_code": 1
     },
-    "icon": "bi-globe"
+    "logo": {
+        "light": "views/default/images/logo.svg",
+        "dark": "views/default/images/logo-dark.svg"
+    }
 }
