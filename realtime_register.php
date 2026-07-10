@@ -1,5 +1,7 @@
 <?php
 
+use Blesta\Core\Util\Common\Classes\Model;
+
 /**
  * Realtime Register Module
  *
@@ -2357,7 +2359,7 @@ class RealtimeRegister extends RegistrarModule
 
         $tlds = [];
         if ($cache) {
-            $tlds = safe_unserialize(base64_decode($cache));
+            $tlds = Model::safeUnserialize(base64_decode($cache));
         }
 
         if (empty($tlds)) {
