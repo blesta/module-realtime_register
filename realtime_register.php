@@ -655,7 +655,7 @@ class RealtimeRegister extends RegistrarModule
             // Register domain
             $params = [
                 'registrant' => $contacts['REGISTRANT'],
-                'privacyProtect' => false,
+                'privacyProtect' => isset($vars['configoptions']['id_protection']),
                 'autoRenew' => false,
                 'period' => $years,
                 'ns' => array_values($vars['ns'] ?? []),
@@ -760,20 +760,17 @@ class RealtimeRegister extends RegistrarModule
 
         // Only update the service if 'use_module' is true
         if ($vars['use_module'] == 'true') {
-            // Set nameservers
-            $ns = [];
-            for ($i = 1; $i <= 5; $i++) {
-                if (isset($vars['ns' . $i]) && $vars['ns' . $i] != '') {
-                    $ns[] = $vars['ns' . $i];
-                }
+            // Set ID Protection, if the configurable option has been changed
+            $params = [];
+            $id_protection = $this->featureServiceEnabled('id_protection', $service);
+            if (!$id_protection && isset($vars['configoptions']['id_protection'])) {
+                $params['privacyProtect'] = true;
+            } elseif ($id_protection && !isset($vars['configoptions']['id_protection'])) {
+                $params['privacyProtect'] = false;
             }
 
-            // Only update nameservers if at least one was provided
-            if (!empty($ns)) {
-                $params = [
-                    'ns' => $ns
-                ];
-
+            // Only update the domain if there is something to change
+            if (!empty($params)) {
                 $this->log($row->meta->customer . '|update', serialize($params), 'input', true);
                 $domain = $api->updateDomain($vars['domain'], $params);
                 $response = $domain->response();
